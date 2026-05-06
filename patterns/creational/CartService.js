@@ -9,7 +9,15 @@
 class CartService {
     constructor() {
         // ... your implementation here ...
+        if (CartService.instance) {
+            return CartService.instance;
+        }
+
         this.products = [];
+
+        CartService.instance = this;
+
+        return this;
     }
 
     addProduct(product) {
